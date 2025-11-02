@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+input[type="checkbox"] {
+  accent-color: green; /* Sets the highlight color for the checkbox */
+}
+input[type="radio"] {
+  accent-color: brown; /* Sets the highlight color for the checkbox */
+}
