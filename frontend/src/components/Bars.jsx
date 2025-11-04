@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { HelpCircle, FileText, Megaphone } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { HelpCircle, FileText, Megaphone } from "lucide-react";
+import { useSelector } from "react-redux";
 
 /**
  * StatCard Component
@@ -74,32 +75,34 @@ const StatCard = ({ icon: Icon, title, count, color }) => {
  */
 export default function App() {
   // Data for the stat cards
+
+  const count = useSelector((state) => state.countsass);
   const statData = [
     {
-      title: 'Total Questions',
+      title: "Total Questions",
       count: 50,
       icon: HelpCircle,
       color: {
-        text: 'text-blue-600',
-        bg: 'bg-blue-100',
+        text: "text-blue-600",
+        bg: "bg-blue-100",
       },
     },
     {
-      title: 'Assignments Due',
-      count: 0,
+      title: "Assignments Due",
+      count: count ? count : 0,
       icon: FileText,
       color: {
-        text: 'text-emerald-600',
-        bg: 'bg-emerald-100',
+        text: "text-emerald-600",
+        bg: "bg-emerald-100",
       },
     },
     {
-      title: 'Announcements',
+      title: "Announcements",
       count: 0,
       icon: Megaphone,
       color: {
-        text: 'text-amber-600',
-        bg: 'bg-amber-100',
+        text: "text-amber-600",
+        bg: "bg-amber-100",
       },
     },
   ];

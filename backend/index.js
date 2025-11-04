@@ -68,7 +68,7 @@ const upload = multer({
 });
 
 // Upload PDF
-app.post("/upload", upload.single("pdf"), async (req,res) => {
+app.post("/upload", upload.single("pdf"), async (req, res) => {
   try {
     const file = req.file;
     const { ClassNames, department } = req.body;
@@ -93,6 +93,21 @@ app.post("/upload", upload.single("pdf"), async (req,res) => {
 app.get("/files", async (req, res) => {
   try {
     const fid = await AssignmentModel.find({});
+    if (!fid) return res.status(401).json({ error: "Error in files!" });
+    return res.status(200).json(fid);
+  } catch (err) {
+    return res.status(401).json({ error: "Error in Fetching!", err });
+  }
+});
+
+app.get("/files/:cname/:department", async (req, res) => {
+  try {
+    const { cname, department } = req.params;
+    // console.log("Params received:", cname, department);
+    const fid = await AssignmentModel.find({
+      ClassNames: cname,
+      department: department,
+    });
     if (!fid) return res.status(401).json({ error: "Error in files!" });
     return res.status(200).json(fid);
   } catch (err) {

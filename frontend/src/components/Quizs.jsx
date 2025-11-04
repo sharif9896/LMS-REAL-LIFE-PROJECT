@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import HourTimer from "./HourTimer";
 import Bars from "./Bars";
-const Quizs = ({ questions }) => {
+const Quizs = ({ count }) => {
   const [loading, setLoading] = useState(false);
   // console.log(times);
   //   console.log(questions);
