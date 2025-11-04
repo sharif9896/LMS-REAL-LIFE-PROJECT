@@ -23,6 +23,7 @@ import timerouter from "./routes/timesroutes.js";
 import QUERouter from "./routes/questionroutes.js";
 import resultRouter from "./routes/resultroutes.js";
 import AssignmentModel from "./models/AssigmentModel.js";
+import assignmentrouter from "./routes/AssignmentRoutes.js";
 // import adminrouter from "./routes/adminroute.js";
 // import foodrouter from "./routes/foodsroute.js";
 
@@ -67,16 +68,14 @@ const upload = multer({
 });
 
 // Upload PDF
-app.post("/upload", upload.single("pdf"), async (req, res) => {
+app.post("/upload", upload.single("pdf"), async (req,res) => {
   try {
     const file = req.file;
-    // const { ClassNames, department } = req.body;
-    const ClassNames = "II";
-    const department = "IIBCA";
-    // console.log(req.files, file);
+    const { ClassNames, department } = req.body;
+    // console.log(ClassNames, department, file);
     if (!file) return res.status(400).send("No file uploaded.");
-    const getdata = await AssignmentModel.findOne({ file_path: file.path });
-    if (getdata) return res.status(400).json({ error: "File already exists!" });
+    // const getdata = await AssignmentModel.findOne({ file_path: file.path });
+    // if (getdata) return res.status(400).json({ error: "File already exists!" });
     const newAssignment = new AssignmentModel({
       ClassNames,
       department,
@@ -93,7 +92,7 @@ app.post("/upload", upload.single("pdf"), async (req, res) => {
 // Get all PDFs
 app.get("/files", async (req, res) => {
   try {
-    const fid = await db.query("SELECT * FROM pdf_files");
+    const fid = await AssignmentModel.find({});
     if (!fid) return res.status(401).json({ error: "Error in files!" });
     return res.status(200).json(fid);
   } catch (err) {
@@ -105,9 +104,7 @@ app.get("/files", async (req, res) => {
 app.get("/download/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const results = await db.query("SELECT * FROM pdf_files WHERE id = ?", [
-      id,
-    ]);
+    const results = await AssignmentModel.find({ _id: id });
     if (results.length === 0) return res.status(404).send("File not found.");
     const filePath = results[0].file_path;
     res.download(filePath, results[0].name);
