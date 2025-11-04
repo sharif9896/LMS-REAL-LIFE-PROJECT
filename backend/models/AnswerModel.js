@@ -7,6 +7,7 @@ const answerSchema = new mongoose.Schema({
   department: { type: String, required: true },
   course_exam: { type: String, required: true },
   score: { type: String, required: true },
+  timestamp: { type: Date, default: Date.now },
 });
 const AnswerModel = mongoose.model("Answer", answerSchema);
 export default AnswerModel;

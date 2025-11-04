@@ -22,6 +22,7 @@ import examineeRoutes from "./routes/examineeRoutes.js";
 import timerouter from "./routes/timesroutes.js";
 import QUERouter from "./routes/questionroutes.js";
 import resultRouter from "./routes/resultroutes.js";
+import AssignmentModel from "./models/AssigmentModel.js";
 // import adminrouter from "./routes/adminroute.js";
 // import foodrouter from "./routes/foodsroute.js";
 
@@ -69,18 +70,23 @@ const upload = multer({
 app.post("/upload", upload.single("pdf"), async (req, res) => {
   try {
     const file = req.file;
-    const { ClassNames, department } = req.body;
-    // const department = req.body;
-    // const ClassName = req.body;
-    console.log(ClassNames);
+    // const { ClassNames, department } = req.body;
+    const ClassNames = "II";
+    const department = "IIBCA";
+    // console.log(req.files, file);
     if (!file) return res.status(400).send("No file uploaded.");
-
-    const sql =
-      "INSERT INTO pdf_files (ClassName, department, name, file_path) VALUES (?, ?, ?, ?)";
-    await db.query(sql, [ClassNames, department, file.originalname, file.path]);
-    res.status(200).json({ message: "File Uploaded Successfully.." });
+    const getdata = await AssignmentModel.findOne({ file_path: file.path });
+    if (getdata) return res.status(400).json({ error: "File already exists!" });
+    const newAssignment = new AssignmentModel({
+      ClassNames,
+      department,
+      file_path: file.path,
+      name: file.originalname,
+    });
+    await newAssignment.save();
+    return res.status(200).json({ message: "File Uploaded Successfully.." });
   } catch (err) {
-    res.status(401).json({ error: "Error in File Uploading!", err });
+    return res.status(401).json({ error: "Error in File Uploading!", err });
   }
 });
 
