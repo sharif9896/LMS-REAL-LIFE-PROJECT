@@ -33,11 +33,14 @@ export default function HourTimer({ hoursFromStore }) {
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center text-[14px] md:text-xl">
       <h2>
         🕒 Timer for {hoursFromStore} Hour{hoursFromStore > 1 ? "s" : ""}
       </h2>
-      <h1 style={{ fontSize: "1rem", marginTop: "10px", color: "blue" }}>
+      <h1
+        className="text-[14px] md:text-xl"
+        style={{ marginTop: "10px", color: "blue" }}
+      >
         Remaining: {formatTime(timeLeft)}
       </h1>
     </div>

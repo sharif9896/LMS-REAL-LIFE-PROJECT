@@ -237,12 +237,12 @@ const Quiz = ({ questions }) => {
 
   return (
     <>
-      <div className="flex justify-center w-[70vw] items-center  absolute top-0 left-80  min-h-screen bg-gray-50 p-6">
+      <div className="flex justify-center sm:w-[100%] md:w-[70vw] items-center sm:absolute  md:absolute md:top-0 md:left-80  min-h-screen bg-gray-50 p-6">
         <form className="w-[70vw]" onSubmit={(e) => handleSubmit(e)}>
           <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg p-6">
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold text-blue-600">
+              <h2 className="text-[14px] md:text-xl font-bold text-blue-600 ">
                 {user.course_exam}
               </h2>
               <HourTimer hoursFromStore={hours} />

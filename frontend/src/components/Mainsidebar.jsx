@@ -92,7 +92,7 @@ export default function Mainsidebar() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <img
-        className="w-[65vw] absolute top-20 z-2 left-85"
+        className="w-[65vw] absolute left-20 top-20 md:absolute md:top-20 z-2 md:left-85"
         src="tydj.png"
         alt=""
       />
@@ -227,13 +227,13 @@ export default function Mainsidebar() {
             </nav>
           </div>
         </aside>
+      </div>
+      {/* Content area */}
 
-        {/* Content area */}
-
-        {/* <img className="absolute top-0 left-50" src="tydj.png" alt=""/> */}
-        <Quizs />
-        {/* <Bars /> */}
-        {/* <main className="md:ml-72 p-6">
+      {/* <img className="absolute top-0 left-50" src="tydj.png" alt=""/> */}
+      <Quizs />
+      {/* <Bars /> */}
+      {/* <main className="md:ml-72 p-6">
           <div className="max-w-3xl">
             <h1 className="text-2xl font-semibold mb-3">Instructions</h1>
             <p className="text-sm text-slate-600 mb-6">
@@ -253,8 +253,8 @@ export default function Mainsidebar() {
             </div>
           </div>
         </main> */}
-      </div>
     </div>
+    // </div>
   );
 }
 
