@@ -87,7 +87,10 @@ export default function AdminLogin() {
         </div>
 
         <center>
-          <form className="w-[60%] md:px-8 md:pb-8 md:w-90" onSubmit={(e) => handleSubmit(e)}>
+          <form
+            className="w-[60%] md:px-8 md:pb-8 md:w-90"
+            onSubmit={(e) => handleSubmit(e)}
+          >
             <label htmlFor="email" className="sr-only">
               Email
             </label>
@@ -149,7 +152,6 @@ export default function AdminLogin() {
             )}
             <center className="w-full bg-[yellow] rounded">
               <button
-                type="submit"
                 className="mt-6"
                 disabled={loading}
                 style={{
