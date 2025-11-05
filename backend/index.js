@@ -24,6 +24,7 @@ import QUERouter from "./routes/questionroutes.js";
 import resultRouter from "./routes/resultroutes.js";
 import AssignmentModel from "./models/AssigmentModel.js";
 import assignmentrouter from "./routes/AssignmentRoutes.js";
+import AnnouncementModel from "./models/Announcement.js";
 // import adminrouter from "./routes/adminroute.js";
 // import foodrouter from "./routes/foodsroute.js";
 
@@ -89,6 +90,27 @@ app.post("/upload", upload.single("pdf"), async (req, res) => {
   }
 });
 
+app.post("/uploads", upload.single("pdf"), async (req, res) => {
+  try {
+    const file = req.file;
+    const { ClassNames, department } = req.body;
+    // console.log(ClassNames, department, file);
+    if (!file) return res.status(400).send("No file uploaded.");
+    // const getdata = await AssignmentModel.findOne({ file_path: file.path });
+    // if (getdata) return res.status(400).json({ error: "File already exists!" });
+    const newAssignment = new AnnouncementModel({
+      ClassNames,
+      department,
+      file_path: file.path,
+      name: file.originalname,
+    });
+    await newAssignment.save();
+    return res.status(200).json({ message: "File Uploaded Successfully.." });
+  } catch (err) {
+    return res.status(401).json({ error: "Error in File Uploading!", err });
+  }
+});
+
 // Get all PDFs
 app.get("/files", async (req, res) => {
   try {
@@ -105,6 +127,21 @@ app.get("/files/:cname/:department", async (req, res) => {
     const { cname, department } = req.params;
     // console.log("Params received:", cname, department);
     const fid = await AssignmentModel.find({
+      ClassNames: cname,
+      department: department,
+    });
+    if (!fid) return res.status(401).json({ error: "Error in files!" });
+    return res.status(200).json(fid);
+  } catch (err) {
+    return res.status(401).json({ error: "Error in Fetching!", err });
+  }
+});
+
+app.get("/filesan/:cname/:department", async (req, res) => {
+  try {
+    const { cname, department } = req.params;
+    // console.log("Params received:", cname, department);
+    const fid = await AnnouncementModel.find({
       ClassNames: cname,
       department: department,
     });

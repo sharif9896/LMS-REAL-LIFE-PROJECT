@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../../utils/util";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 // --- Mock Data based on the provided image (expanded for pagination) ---
 const initialStudentData = [
   {
@@ -184,8 +185,13 @@ export default function App() {
   const [students, setStudents] = useState(initialStudentData2);
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(6);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!students || students.length === 0) {
+      toast.warn("No student records found. Redirecting to dashboard.");
+      navigate('/dashboard');
+    }
     if (!initialStudentData2 || initialStudentData2.length === 0) {
       setStudents(initialStudentData);
     } else {
@@ -218,7 +224,6 @@ export default function App() {
         `${BACKEND_URL}api/user/deleteresults`
       );
       const data = await response.json();
-      // console.log(data.message);
     } catch (err) {
       console.error("Error in deleting results:", err);
     }

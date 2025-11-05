@@ -90,9 +90,9 @@ export default function Announcements() {
     // console.log(BACKEND_URL);
     try {
       const formData = new FormData();
-      formData.append("ClassNames", classNames);
-      formData.append("department", department);
-      formData.append("pdf", file);
+      formData.Announcementsend("ClassNames", classNames);
+      formData.Announcementsend("department", department);
+      formData.Announcementsend("pdf", file);
       await axios.post(`${BACKEND_URL}uploads`, formData);
       alert("PDF uploaded successfully!");
       fetchfiles();
@@ -122,7 +122,7 @@ export default function Announcements() {
             Ṣending to Students
           </h1>
           <p className="text-lg text-gray-500 mt-2">
-            Upload and manage your class Announcements.
+            Upload and manage your class Assignments.
           </p>
         </header>
 

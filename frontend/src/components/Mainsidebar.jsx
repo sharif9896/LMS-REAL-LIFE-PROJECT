@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CountTimingAction } from "../../store/CountTimingSlice";
 import Quizs from "./Quizs";
 import { CountassSliceAction } from "../../store/CountAssSilce.js";
+import { CountannSliceAction } from "../../store/CountannSlice.js";
 
 // Single-file, drop-in component. TailwindCSS assumed.
 // Default export so you can render <App /> directly.
@@ -60,6 +61,20 @@ export default function Mainsidebar() {
       }
     };
     fetxhfile();
+
+    const fetxhfiless = async () => {
+      try {
+        const response = await axios.get(
+          `${BACKEND_URL}filesan/${user.class}/${user.department}`
+        );
+        // console.log("Fetched file:", response);
+        dispatch(CountannSliceAction.setItems(response.data.length));
+        // setfile(response.data[0]);
+      } catch (error) {
+        console.error("Error fetching file:", error);
+      }
+    };
+    fetxhfiless();
     const onKey = (e) => e.key === "Escape" && setSidebarOpen(false);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);

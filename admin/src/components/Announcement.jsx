@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 // This component now dynamically loads the jsPDF script.
 function Announcement() {
@@ -161,169 +161,175 @@ function Announcement() {
 
   return (
     <>
-    <Link to={"/assign"} className="py-2 px-2 ml-20 cursor-pointer bg-green-600 rounded text-white hover:bg-green-700"> 		&#128228; Send Anouncement to Students</Link>
+      <Link
+        to={"/anounces"}
+        className="py-2 px-2 ml-20 cursor-pointer bg-green-600 rounded text-white hover:bg-green-700"
+      >
+        {" "}
+        &#128228; Send Anouncement to Students
+      </Link>
 
-    <div className="bg-gray-100 flex items-center justify-center min-h-screen font-sans">
-      {/* Error Modal */}
-      {showError && (
-        <div className="fixed  inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 shadow-lg text-center">
-            <p className="mb-4 text-gray-700">
-              Please fill out all fields before creating the PDF.
-            </p>
-            <button
-              onClick={() => setShowError(false)}
-              className="px-5 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-
-      <div className="w-[70vw] max-w-1xl mx-auto p-6 md:p-8">
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">
-              Create Anouncement PDF
-            </h1>
-            <p className="text-gray-500 mt-2">
-              Fill in the details below to generate a downloadable assignment
-              PDF.
-            </p>
-          </div>
-
-          <form onSubmit={handleCreatePdf}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Assignment Title */}
-              <div className="md:col-span-2">
-                <label
-                  htmlFor="title"
-                  className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                  Anouncement Title
-                </label>
-                <input
-                  type="text"
-                  id="title"
-                  value={assignment.title}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="e.g., World War II Essay"
-                  required
-                />
-              </div>
-
-              {/* Subject */}
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  value={assignment.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="e.g., History"
-                  required
-                />
-              </div>
-
-              {/* Teacher's Name */}
-              <div>
-                <label
-                  htmlFor="teacher"
-                  className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                  Teacher's Name
-                </label>
-                <input
-                  type="text"
-                  id="teacher"
-                  value={assignment.teacher}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="e.g., Mr. Smith"
-                  required
-                />
-              </div>
-
-              {/* Due Date */}
-              <div>
-                <label
-                  htmlFor="dueDate"
-                  className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                  Due Date
-                </label>
-                <input
-                  type="date"
-                  id="dueDate"
-                  value={assignment.dueDate}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  required
-                />
-              </div>
-
-              {/* Points */}
-              <div>
-                <label
-                  htmlFor="points"
-                  className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                  Points
-                </label>
-                <input
-                  type="number"
-                  id="points"
-                  value={assignment.points}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="e.g., 100"
-                  required
-                />
-              </div>
-
-              {/* Instructions */}
-              <div className="md:col-span-2">
-                <label
-                  htmlFor="instructions"
-                  className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                  Questions
-                </label>
-                <textarea
-                  id="instructions"
-                  value={assignment.instructions}
-                  onChange={handleChange}
-                  rows="8"
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Provide clear instructions for the students..."
-                  required
-                ></textarea>
-              </div>
-            </div>
-
-            <div className="mt-8 text-center">
+      <div className="bg-gray-100 flex items-center justify-center min-h-screen font-sans">
+        {/* Error Modal */}
+        {showError && (
+          <div className="fixed  inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6 shadow-lg text-center">
+              <p className="mb-4 text-gray-700">
+                Please fill out all fields before creating the PDF.
+              </p>
               <button
-                type="submit"
-                disabled={!isPdfLibReady}
-                className="w-full md:w-auto px-8 py-3 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-transform transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none"
+                onClick={() => setShowError(false)}
+                className="px-5 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
               >
-                {isPdfLibReady
-                  ? "Create & Download PDF"
-                  : "Loading PDF Library..."}
+                Close
               </button>
             </div>
-          </form>
+          </div>
+        )}
+
+        <div className="w-[70vw] max-w-1xl mx-auto p-6 md:p-8">
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-gray-800">
+                Create Anouncement PDF
+              </h1>
+              <p className="text-gray-500 mt-2">
+                Fill in the details below to generate a downloadable announcements
+                PDF.
+              </p>
+            </div>
+
+            <form onSubmit={handleCreatePdf}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Assignment Title */}
+                <div className="md:col-span-2">
+                  <label
+                    htmlFor="title"
+                    className="block mb-2 text-sm font-medium text-gray-700"
+                  >
+                    Anouncement Title
+                  </label>
+                  <input
+                    type="text"
+                    id="title"
+                    value={assignment.title}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="e.g., World War II Essay"
+                    required
+                  />
+                </div>
+
+                {/* Subject */}
+                <div>
+                  <label
+                    htmlFor="subject"
+                    className="block mb-2 text-sm font-medium text-gray-700"
+                  >
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    value={assignment.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="e.g., History"
+                    required
+                  />
+                </div>
+
+                {/* Teacher's Name */}
+                <div>
+                  <label
+                    htmlFor="teacher"
+                    className="block mb-2 text-sm font-medium text-gray-700"
+                  >
+                    Teacher's Name
+                  </label>
+                  <input
+                    type="text"
+                    id="teacher"
+                    value={assignment.teacher}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="e.g., Mr. Smith"
+                    required
+                  />
+                </div>
+
+                {/* Due Date */}
+                <div>
+                  <label
+                    htmlFor="dueDate"
+                    className="block mb-2 text-sm font-medium text-gray-700"
+                  >
+                    Due Date
+                  </label>
+                  <input
+                    type="date"
+                    id="dueDate"
+                    value={assignment.dueDate}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
+                </div>
+
+                {/* Points */}
+                <div>
+                  <label
+                    htmlFor="points"
+                    className="block mb-2 text-sm font-medium text-gray-700"
+                  >
+                    Points
+                  </label>
+                  <input
+                    type="number"
+                    id="points"
+                    value={assignment.points}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="e.g., 100"
+                    required
+                  />
+                </div>
+
+                {/* Instructions */}
+                <div className="md:col-span-2">
+                  <label
+                    htmlFor="instructions"
+                    className="block mb-2 text-sm font-medium text-gray-700"
+                  >
+                    Announcements
+                  </label>
+                  <textarea
+                    id="instructions"
+                    value={assignment.instructions}
+                    onChange={handleChange}
+                    rows="8"
+                    className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Provide clear instructions for the students..."
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="mt-8 text-center">
+                <button
+                  type="submit"
+                  disabled={!isPdfLibReady}
+                  className="w-full md:w-auto px-8 py-3 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-transform transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  {isPdfLibReady
+                    ? "Create & Download PDF"
+                    : "Loading PDF Library..."}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

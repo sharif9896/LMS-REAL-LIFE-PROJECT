@@ -27,6 +27,7 @@ import Assignments from "./components/Assignments.jsx";
 import Assignment_Dash from "./pages/Assignment_Dash.jsx";
 import Announce from "./pages/Announce.jsx";
 import Anouncement_Dash from "./pages/Anouncement_Dash.jsx";
+import Announcements from "./components/Announcements.jsx";
 
 const route = createBrowserRouter([
   {
@@ -48,7 +49,8 @@ const route = createBrowserRouter([
       { path: "/assigns", element: <Assignment_Dash /> },
       { path: "/results", element: <Results /> },
       { path: "/Announce", element: <Announce /> },
-       { path: "/anounces", element: <Anouncement_Dash /> },
+      { path: "/anounces", element: <Anouncement_Dash /> },
+      { path: "/announcem", element: <Announcements /> },
     ],
   },
 ]);
