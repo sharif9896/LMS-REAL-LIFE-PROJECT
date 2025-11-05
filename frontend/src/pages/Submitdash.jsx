@@ -177,7 +177,7 @@ export default function App() {
             </nav>
           </div>
         </aside>
-        <div className="flex justify-center items-center absolute top-20 left-80 h-fit bg-gray-100">
+        <div className="flex justify-center items-center md:absolute md:top-20 md:left-80 h-fit bg-gray-100">
           <motion.div
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
