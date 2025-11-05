@@ -20,7 +20,6 @@ export default function AdminLogin() {
 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    // alert("Login functionality is currently disabled for demo purposes.");
     e.preventDefault();
     setLoading(true);
     // console.log({ dob });
@@ -31,8 +30,12 @@ export default function AdminLogin() {
           reg_no,
           dob,
         },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
-      alert(response);
       setTimeout(() => {
         setLoading(false);
       }, 2000);
@@ -84,10 +87,7 @@ export default function AdminLogin() {
         </div>
 
         <center>
-          <form
-            className="w-[30%]  md:px-8 md:pb-8 md:w-90"
-            onSubmit={(e) => handleSubmit(e)}
-          >
+          <form className="w-[60%] md:px-8 md:pb-8 md:w-90" onSubmit={(e) => handleSubmit(e)}>
             <label htmlFor="email" className="sr-only">
               Email
             </label>
@@ -147,15 +147,54 @@ export default function AdminLogin() {
             {errorMessage && (
               <div className="p-3 text-red-500 text-center">{errorMessage}</div>
             )}
-            {/* <center className="w-full bg-[yellow] rounded"> */}
-            <button
-              type="submit"
-              className="mt-6"
-              // disabled={loading}
-            >
-              Login
-            </button>
-            {/* </center> */}
+            <center className="w-full bg-[yellow] rounded">
+              <button
+                type="submit"
+                className="mt-6"
+                disabled={loading}
+                style={{
+                  padding: "10px 20px",
+                  fontSize: "16px",
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  backgroundColor: loading ? "darkyellow" : "yellow",
+                  // color: "#303030",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: loading ? "not-allowed" : "pointer",
+                }}
+              >
+                {" "}
+                {loading ? (
+                  <>
+                    <span className="spinner" />
+                    Loging In...
+                  </>
+                ) : (
+                  "Login In"
+                )}
+                <style>
+                  {`
+            .spinner {
+              width: 16px;
+              height: 16px;
+              border: 2px solid black;
+              border-top: 2px solid transparent;
+              border-radius: 50%;
+              animation: spin 0.6s linear infinite;
+            }
+
+            @keyframes spin {
+              to {
+                transform: rotate(360deg);
+              }
+            }
+          `}
+                </style>
+              </button>
+            </center>
             <p className="mt-4 text-center text-sm text-gray/80">
               Don’t have an account?{" "}
               <a
