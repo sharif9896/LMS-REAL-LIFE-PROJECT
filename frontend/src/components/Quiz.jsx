@@ -255,7 +255,7 @@ const Quiz = ({ questions }) => {
             </div>
 
             {/* Scrollable Questions Container */}
-            <div className="h-[450px] overflow-y-auto pr-2">
+            <div className="h-[450px] overflow-y-auto pr-2 custom-scrollbar">
               {questions.map((q, index) => (
                 <div
                   key={q.id}
