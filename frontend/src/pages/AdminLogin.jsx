@@ -154,48 +154,8 @@ export default function AdminLogin() {
               <button
                 type="submit"
                 className="mt-6"
-                disabled={loading}
-                style={{
-                  padding: "10px 20px",
-                  fontSize: "16px",
-                  position: "relative",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  backgroundColor: loading ? "darkyellow" : "yellow",
-                  // color: "#303030",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: loading ? "not-allowed" : "pointer",
-                }}
+                // disabled={loading}
               >
-                {" "}
-                {loading ? (
-                  <>
-                    <span className="spinner" />
-                    Loging In...
-                  </>
-                ) : (
-                  "Login In"
-                )}
-                <style>
-                  {`
-            .spinner {
-              width: 16px;
-              height: 16px;
-              border: 2px solid black;
-              border-top: 2px solid transparent;
-              border-radius: 50%;
-              animation: spin 0.6s linear infinite;
-            }
-
-            @keyframes spin {
-              to {
-                transform: rotate(360deg);
-              }
-            }
-          `}
-                </style>
               </button>
             </center>
             <p className="mt-4 text-center text-sm text-gray/80">
