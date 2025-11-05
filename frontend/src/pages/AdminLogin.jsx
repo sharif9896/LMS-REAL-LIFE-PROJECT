@@ -156,6 +156,7 @@ export default function AdminLogin() {
                 className="mt-6"
                 // disabled={loading}
               >
+                Login
               </button>
             </center>
             <p className="mt-4 text-center text-sm text-gray/80">
