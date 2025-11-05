@@ -20,7 +20,7 @@ export default function AdminLogin() {
 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    alert("Login functionality is currently disabled for demo purposes.");
+    // alert("Login functionality is currently disabled for demo purposes.");
     e.preventDefault();
     setLoading(true);
     // console.log({ dob });
@@ -37,6 +37,7 @@ export default function AdminLogin() {
           },
         }
       );
+      alert(reponse);
       setTimeout(() => {
         setLoading(false);
       }, 2000);
