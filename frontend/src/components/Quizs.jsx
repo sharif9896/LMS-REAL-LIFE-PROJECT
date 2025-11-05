@@ -239,7 +239,7 @@ const Quizs = ({ count }) => {
   return (
     <>
       <div></div>
-      <div className="flex justify-center w-[70vw] items-center  md:absolute md:top-0 md:left-80  min-h-screen bg-gray-50 p-6">
+      <div className="flex justify-center sm:w-[100%] md:w-[70vw] items-center  md:absolute md:top-0 md:left-80  min-h-screen bg-gray-50 p-6">
         <form className="w-[70vw]" onSubmit={(e) => handleSubmit(e)}>
           <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg p-6">
             {/* Header */}

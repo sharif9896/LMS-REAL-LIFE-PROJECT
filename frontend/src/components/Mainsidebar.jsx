@@ -92,7 +92,7 @@ export default function Mainsidebar() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <img
-        className="w-[65vw] absolute left-20 top-20 md:absolute md:top-20 z-2 md:left-85"
+        className="md:w-[65vw] sm:hidden md:absolute md:top-20 z-2 md:left-85"
         src="tydj.png"
         alt=""
       />
