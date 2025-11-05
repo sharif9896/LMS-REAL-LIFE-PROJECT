@@ -31,11 +31,6 @@ export default function AdminLogin() {
           reg_no,
           dob,
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
       );
       alert(response);
       setTimeout(() => {
