@@ -150,7 +150,7 @@ export default function AdminLogin() {
             {errorMessage && (
               <div className="p-3 text-red-500 text-center">{errorMessage}</div>
             )}
-            <center className="w-full bg-[yellow] rounded">
+            {/* <center className="w-full bg-[yellow] rounded"> */}
               <button
                 type="submit"
                 className="mt-6"
@@ -158,7 +158,7 @@ export default function AdminLogin() {
               >
                 Login
               </button>
-            </center>
+            {/* </center> */}
             <p className="mt-4 text-center text-sm text-gray/80">
               Don’t have an account?{" "}
               <a
