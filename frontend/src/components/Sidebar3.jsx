@@ -36,12 +36,6 @@ export default function App() {
         const response = await axios.get(
           `${BACKEND_URL}api/question/${user.course_exam}`
         );
-        //  const response2 = await axios.get(
-        //   `${BACKEND_URL}api/times/${user.course_exam}`
-        // );
-        // console.log(response);
-        // console.log(response2);
-        // settimes(response2);
         setquestions(response.data.slice(0, 49));
       };
 

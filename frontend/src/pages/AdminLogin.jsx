@@ -48,10 +48,7 @@ export default function AdminLogin() {
       toast.error(error);
       if (error.response) {
         toast.error("Invalid Credentials! Refresh and try again..");
-        setErrorMessage(
-          error.response.data.errors ||
-            "Invalid Credentials!"
-        );
+        setErrorMessage(error.response.data.errors || "Invalid Credentials!");
       }
     }
   };
@@ -104,7 +101,7 @@ export default function AdminLogin() {
                 type="text"
                 required
                 placeholder="Reg_no."
-                autocomplete="off"
+                autoComplete="off"
                 value={reg_no}
                 onChange={(e) => setreg_no(e.target.value)}
                 className="w-full rounded-xl bg-gray/15 border border-gray/20 pl-10 pr-3 py-3 text-gray placeholder-gray/70 focus:outline-none focus:ring-2 focus:ring-white/50"
@@ -124,7 +121,7 @@ export default function AdminLogin() {
                 type="dob"
                 required
                 placeholder="(YYYY-MM-DD)"
-                autocomplete="off"
+                autoComplete="off"
                 value={dob}
                 onChange={(e) => setdob(e.target.value)}
                 className="w-full rounded-xl bg-gray/15 border border-gray/20 pl-10 pr-3 py-3 text-gray placeholder-gray/70 focus:outline-none focus:ring-2 focus:ring-white/50"

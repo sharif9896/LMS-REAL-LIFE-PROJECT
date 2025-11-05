@@ -270,15 +270,12 @@ function SectionTitle({ children, className = "" }) {
 
 function SimpleLink({ label, href, icon }) {
   return (
-    <a
-      href={href}
-      className="group flex items-center gap-3 rounded-xl px-3 py-3 text-sm hover:bg-slate-100 active:scale-[0.99] transition select-none"
-    >
+    <div className="group flex items-center gap-3 rounded-xl px-3 py-3 text-sm hover:bg-slate-100 active:scale-[0.99] transition select-none">
       {icon ? icon : <span className="h-5 w-5 grid place-items-center">•</span>}
       <span className="font-medium text-slate-800 group-hover:text-slate-900">
         {label}
       </span>
-    </a>
+    </div>
   );
 }
 
