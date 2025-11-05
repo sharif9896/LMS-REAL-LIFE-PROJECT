@@ -87,7 +87,10 @@ export default function AdminLogin() {
         </div>
 
         <center>
-          <form className="w-[100%] mr-20 md:px-8 md:pb-8 md:w-90" onSubmit={(e) => handleSubmit(e)}>
+          <form
+            className="w-[30%]  md:px-8 md:pb-8 md:w-90"
+            onSubmit={(e) => handleSubmit(e)}
+          >
             <label htmlFor="email" className="sr-only">
               Email
             </label>
