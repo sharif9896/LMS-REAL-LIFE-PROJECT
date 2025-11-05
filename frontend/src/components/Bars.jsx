@@ -111,7 +111,7 @@ export default function App() {
   return (
     // Main container
     <div className="p-4 md:p-8 flex items-center justify-center font-sans">
-      <div className="w-full max-w-4xl">
+      <div className="w-[100%] md:w-[80vw]">
         {/* Grid for the stat cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {statData.map((stat) => (
