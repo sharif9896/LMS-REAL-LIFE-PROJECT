@@ -112,7 +112,10 @@ export default function Mainsidebar() {
           >
             <img src="ss1.png" alt="" />
           </Link>
-          <Link to={"/main-stu"} className="text-slate-900">
+          <Link
+            to={"/main-stu"}
+            className="text-[14px] font-bold md:text-slate-900"
+          >
             ONLINE EXAMINATION
           </Link>
         </div>

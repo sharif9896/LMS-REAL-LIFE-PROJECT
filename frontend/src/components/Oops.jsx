@@ -82,7 +82,7 @@ export default function Oops() {
           >
             <img src="ss1.png" alt="" />
           </Link>
-          <Link to={"/dashboard"} className="text-slate-900">
+          <Link to={"/dashboard"} className="text-[14px] font-bold md:text-slate-900">
             ONLINE EXAMINATION
           </Link>
         </div>

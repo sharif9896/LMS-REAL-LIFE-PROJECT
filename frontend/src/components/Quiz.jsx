@@ -238,7 +238,7 @@ const Quiz = ({ questions }) => {
   return (
     <>
       <div className="flex justify-center items-center  sm:absolute  md:absolute md:top-0 md:left-80  min-h-screen bg-gray-50 p-6">
-        <form className="" onSubmit={(e) => handleSubmit(e)}>
+        <form className="md:w-[100vw]" onSubmit={(e) => handleSubmit(e)}>
           <div className="w-[100%] bg-white rounded-lg shadow-lg h-[100%] p-3  md:p-6">
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
