@@ -37,7 +37,7 @@ export default function AdminLogin() {
           },
         }
       );
-      alert(reponse);
+      alert(response);
       setTimeout(() => {
         setLoading(false);
       }, 2000);
