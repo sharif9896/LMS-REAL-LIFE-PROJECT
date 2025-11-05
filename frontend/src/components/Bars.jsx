@@ -77,6 +77,7 @@ export default function App() {
   // Data for the stat cards
 
   const count = useSelector((state) => state.countsass);
+  const counts = useSelector((state) => state.countsann);
   const statData = [
     {
       title: "Total Questions",
@@ -98,7 +99,7 @@ export default function App() {
     },
     {
       title: "Announcements",
-      count: 0,
+      count: counts ? counts : 0,
       icon: Megaphone,
       color: {
         text: "text-amber-600",

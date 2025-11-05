@@ -165,6 +165,18 @@ app.get("/download/:id", async (req, res) => {
   }
 });
 
+app.get("/downloads/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const results = await AnnouncementModel.find({ _id: id });
+    if (results.length === 0) return res.status(404).send("File not found.");
+    const filePath = results[0].file_path;
+    res.download(filePath, results[0].name);
+  } catch (err) {
+    if (err) return res.status(500).send(err);
+  }
+});
+
 app.use("/uploads", express.static("uploads"));
 app.use(express.json());
 app.use(cookieParser());
