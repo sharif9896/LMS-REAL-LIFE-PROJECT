@@ -114,7 +114,7 @@ export default function Mainsidebar() {
           </Link>
           <Link
             to={"/main-stu"}
-            className="text-[10px] font-bold md:text-slate-900"
+            className="text-[14px] font-bold md:text-slate-900"
           >
             ONLINE EXAMINATION
           </Link>

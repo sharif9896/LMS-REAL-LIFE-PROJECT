@@ -239,7 +239,7 @@ const Quizs2 = ({ questions }) => {
   return (
     <>
       <div></div>
-      <div className="flex justify-center md:w-[70vw] items-center  absolute top-0 left-80  min-h-screen  p-6">
+      <div className="flex justify-center md:w-[70vw] items-center  md:absolute md:top-0 md:left-80  min-h-screen  p-6">
         <form className="md:w-[70vw]" onSubmit={(e) => handleSubmit(e)}>
           <div className="w-[100%] md:w-full md:max-w-4xl  rounded-lg  p-6">
             {/* Header */}

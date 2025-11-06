@@ -62,7 +62,7 @@ export default function Oops1() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <img
-        className="w-[65vw] absolute top-20 z-2 left-85"
+        className="hidden md:block md:w-[65vw] md:absolute md:top-20 z-2 md:left-85"
         src="tydj.png"
         alt=""
       />

@@ -62,7 +62,7 @@ export default function Oops() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <img
-        className="w-[65vw] absolute top-20 z-2 left-85"
+        className="hidden md:block md:w-[65vw] md:absolute md:top-20 z-2 md:left-85"
         src="tydj.png"
         alt=""
       />
@@ -82,7 +82,10 @@ export default function Oops() {
           >
             <img src="ss1.png" alt="" />
           </Link>
-          <Link to={"/dashboard"} className="text-[14px] font-bold md:text-slate-900">
+          <Link
+            to={"/dashboard"}
+            className="text-[14px] font-bold md:text-slate-900"
+          >
             ONLINE EXAMINATION
           </Link>
         </div>
