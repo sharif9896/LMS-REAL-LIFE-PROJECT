@@ -92,7 +92,7 @@ export default function Mainsidebar() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <img
-        className="md:w-[65vw] sm:hidden md:block md:absolute md:top-20 z-2 md:left-85"
+        className="hidden md:w-[65vw] md:block md:absolute md:top-20 z-2 md:left-85"
         src="tydj.png"
         alt=""
       />
@@ -114,7 +114,7 @@ export default function Mainsidebar() {
           </Link>
           <Link
             to={"/main-stu"}
-            className="text-[14px] font-bold md:text-slate-900"
+            className="text-[10px] font-bold md:text-slate-900"
           >
             ONLINE EXAMINATION
           </Link>
